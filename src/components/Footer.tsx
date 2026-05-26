@@ -1,6 +1,10 @@
-import logo from "@/assets/logo.png";
+import logoDark from "@/assets/logo-dark.png";
+import logoLight from "@/assets/logo-light.png";
+import { useTheme } from "./ThemeProvider";
 
 export function Footer() {
+  const { theme } = useTheme();
+  const logo = theme === "dark" ? logoDark : logoLight;
   return (
     <footer className="px-5 md:px-8 pb-8 pt-4">
       <div className="surface-card rounded-2xl px-5 md:px-7 py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">

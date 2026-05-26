@@ -1,7 +1,8 @@
 import { Menu, Moon, Sun, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "./ThemeProvider";
-import logo from "@/assets/logo.png";
+import logoDark from "@/assets/logo-dark.png";
+import logoLight from "@/assets/logo-light.png";
 
 const NAV: { label: string; href: string }[] = [
   { label: "Функції", href: "#features" },
@@ -14,11 +15,12 @@ export function Header() {
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
   const ctaLabel = theme === "dark" ? "Залишити заявку" : "Отримати консультацію";
+  const logo = theme === "dark" ? logoDark : logoLight;
 
   return (
     <header className="flex items-center justify-between px-5 md:px-8 py-4 md:py-5">
       <a href="#" className="flex items-center gap-2.5">
-        <img src={logo} alt="Хатосфера" className="h-8 w-8 object-contain" />
+        <img src={logo} alt="Хатосфера" className="h-9 w-9 object-contain" />
         <span className="font-semibold tracking-tight text-[15px] md:text-base text-[var(--foreground)]">
           Хатосфера <span className="text-gradient-accent">CRM</span>
         </span>
