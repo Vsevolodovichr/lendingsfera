@@ -1,26 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { PricingSection } from "@/components/PricingSection";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <ThemeProvider>
+      <div className="min-h-screen w-full p-3 md:p-6">
+        <main
+          className="mx-auto max-w-[1320px] rounded-[24px] overflow-hidden relative"
+          style={{
+            background: "linear-gradient(180deg, var(--surface), var(--surface-2))",
+            border: "1px solid var(--border)",
+            boxShadow: "var(--shadow-pop)",
+          }}
+        >
+          <div className="absolute inset-0 dot-grid opacity-50 pointer-events-none" />
+          <div className="relative">
+            <Header />
+            <Hero />
+            <PricingSection />
+          </div>
+        </main>
+      </div>
+    </ThemeProvider>
+  );
 }
