@@ -89,6 +89,17 @@
   }
 }
 
+html { scroll-behavior: smooth; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 @layer utilities {
   .dot-grid {
     background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);

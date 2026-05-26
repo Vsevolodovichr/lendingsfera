@@ -3,7 +3,12 @@ import { useState } from "react";
 import { useTheme } from "./ThemeProvider";
 import logo from "@/assets/logo.png";
 
-const NAV = ["Функції", "Тарифи", "Послуги", "Контакти"];
+const NAV: { label: string; href: string }[] = [
+  { label: "Функції", href: "#features" },
+  { label: "Тарифи", href: "#pricing" },
+  { label: "Послуги", href: "#services" },
+  { label: "Контакти", href: "#contact" },
+];
 
 export function Header() {
   const { theme, toggle } = useTheme();
@@ -21,8 +26,8 @@ export function Header() {
 
       <nav className="hidden lg:flex items-center gap-8">
         {NAV.map((n) => (
-          <a key={n} href="#" className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
-            {n}
+          <a key={n.label} href={n.href} className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+            {n.label}
           </a>
         ))}
       </nav>
@@ -53,14 +58,16 @@ export function Header() {
         <div className="absolute top-20 right-5 left-5 z-50 surface-pop rounded-2xl p-4 lg:hidden">
           <div className="flex flex-col gap-3">
             {NAV.map((n) => (
-              <a key={n} href="#" className="text-sm text-[var(--muted-foreground)] py-1">{n}</a>
+              <a key={n.label} href={n.href} onClick={() => setOpen(false)} className="text-sm text-[var(--muted-foreground)] py-1">{n.label}</a>
             ))}
-            <button
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
               className="md:hidden mt-2 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-full text-sm font-medium"
               style={{ background: "var(--accent)", color: "var(--accent-foreground)" }}
             >
               {ctaLabel} <ArrowRight className="h-4 w-4" />
-            </button>
+            </a>
           </div>
         </div>
       )}
