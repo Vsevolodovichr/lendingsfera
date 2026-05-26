@@ -125,7 +125,7 @@ export function PricingSection() {
             <h2 className="mt-2 text-3xl md:text-[40px] font-bold tracking-[-0.02em] leading-tight">
               Оберіть <span className="text-gradient-accent">свій план</span>
             </h2>
-            <p className="mt-2 text-[var(--muted-foreground)] max-w-xl">
+            <p className="mt-2 text-muted-foreground max-w-xl">
               Щомісячна підписка або ліцензія — гнучкі умови для будь-якого масштабу бізнесу.
             </p>
           </div>
@@ -169,20 +169,20 @@ export function PricingSection() {
                     Найпопулярніший
                   </span>
                 )}
-                <div className="text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)]">{p.tag}</div>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{p.tag}</div>
                 <div className="mt-1 text-lg font-semibold">{p.name}</div>
                 <div className="mt-3 flex items-baseline gap-1.5">
                   <span className="text-[26px] font-bold tracking-tight text-gradient-accent tabular-nums">
                     {mode === "monthly" ? p.monthly : p.license1y}
                   </span>
-                  {mode === "monthly" && <span className="text-[11px] text-[var(--muted-foreground)]">{p.monthlyUnit}</span>}
+                  {mode === "monthly" && <span className="text-[11px] text-muted-foreground">{p.monthlyUnit}</span>}
                 </div>
                 {mode === "license" && (
-                  <div className="text-[10px] text-[var(--muted-foreground)] mt-1">
+                  <div className="text-[10px] text-muted-foreground mt-1">
                     2 роки: {p.license2y} · довічно: {p.lifetime}
                   </div>
                 )}
-                <div className="text-[11px] text-[var(--muted-foreground)] mt-2">{p.desc}</div>
+                <div className="text-[11px] text-muted-foreground mt-2">{p.desc}</div>
 
                 <ul className="mt-4 space-y-1.5">
                   {p.features.map((f) => (
@@ -213,7 +213,7 @@ export function PricingSection() {
         <div className="mt-6 surface-card rounded-2xl p-4 flex flex-wrap items-center gap-3 justify-between">
           <div className="flex items-center gap-2 text-[12px]">
             <Sparkles className="h-4 w-4" style={{ color: "var(--accent)" }} />
-            <span className="text-[var(--muted-foreground)]">
+            <span className="text-muted-foreground">
               Разова оплата на 1 рік, 2 роки або пожиттєво — для довгого горизонту.
             </span>
           </div>

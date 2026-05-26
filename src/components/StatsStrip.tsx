@@ -1,15 +1,13 @@
 import { Users, Building2, ShieldCheck, Lock } from "lucide-react";
 
 const STATS = [
-  { icon: Users, value: "500+", label: "агентств" },
-  { icon: Building2, value: "25 000+", label: "користувачів" },
   { icon: ShieldCheck, value: "99.9%", label: "доступність" },
   { icon: Lock, value: "Дані", label: "під захистом" },
 ];
 
 export function StatsStrip() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
       {STATS.map(({ icon: Icon, value, label }) => (
         <div key={label} className="surface-card rounded-2xl p-3 flex items-center gap-3">
           <div
@@ -20,7 +18,7 @@ export function StatsStrip() {
           </div>
           <div className="min-w-0">
             <div className="text-sm font-semibold leading-tight">{value}</div>
-            <div className="text-xs text-[var(--muted-foreground)] leading-tight truncate">{label}</div>
+            <div className="text-xs text-muted-foreground leading-tight truncate">{label}</div>
           </div>
         </div>
       ))}

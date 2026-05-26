@@ -25,7 +25,7 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
       style={{
         opacity: v ? 1 : 0,
         transform: v ? "translateY(0)" : "translateY(14px)",
-        transition: "opacity 700ms ease, transform 700ms cubic-bezier(.2,.7,.2,1)",
+        transition: "opacity 800ms ease, transform 700ms cubic-bezier(.2,.7,.2,1)",
       }}
     >
       {children}
@@ -33,7 +33,7 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
   );
 }
 
-export function useAutoIndex(length: number, interval = 2600, paused = false) {
+export function useAutoIndex(length: number, interval = 2000, paused = false) {
   const [i, setI] = useState(0);
   useEffect(() => {
     if (paused || length <= 1) return;

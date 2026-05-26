@@ -79,7 +79,7 @@ export function ServicesSection() {
           <h2 className="mt-2 text-3xl md:text-[40px] font-bold tracking-[-0.02em] leading-tight max-w-3xl">
             Додаткові <span className="text-gradient-accent">можливості</span>
           </h2>
-          <p className="mt-2 text-[var(--muted-foreground)] max-w-xl">
+          <p className="mt-2 text-muted-foreground max-w-xl">
             Розширюйте CRM під конкретне агентство, мережу або бізнес-модель.
           </p>
         </div>

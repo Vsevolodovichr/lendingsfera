@@ -15,10 +15,11 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <ThemeProvider>
-      <div className="min-h-screen w-full p-3 md:p-6">
+    <ThemeProvider>     
+      <div className="min-h-screen w-full ">
+        <Header /> 
         <main
-          className="mx-auto max-w-[1320px] rounded-[24px] overflow-hidden relative"
+          className="mx-auto max-w-330 rounded-[24px] overflow-hidden relative"
           style={{
             background: "linear-gradient(180deg, var(--surface), var(--surface-2))",
             border: "1px solid var(--border)",
@@ -26,8 +27,7 @@ function Index() {
           }}
         >
           <div className="absolute inset-0 dot-grid opacity-50 pointer-events-none" />
-          <div className="relative">
-            <Header />
+          <div className="relative">            
             <Hero />
             <FeaturesSection />
             <ScreenshotsSection />
@@ -37,7 +37,7 @@ function Index() {
             <Footer />
           </div>
         </main>
-      </div>
+      </div>     
     </ThemeProvider>
   );
 }
