@@ -163,13 +163,13 @@ export function HeroVisual() {
       {/* Tasks card */}
       <div className="hero-card-stack hero-card-stack--tasks absolute top-[28.5%] right-[42%] w-[29%] surface-pop px-3.5 py-8" onClick={() => cycleCard("tasks", taskCards.length)}>
         <div className="hero-card-swap" key={`tasks-${activeCards.tasks}`}>
-        <div className="text-[16px] text-muted-foreground mb-5.5 font-medium">{tasks.title}</div>
+        <div className="text-[16px] leading-tight text-muted-foreground mb-5.5 font-medium">{tasks.title}</div>
 
-        <div className="absolute top-[57%] space-y-2.5">
+        <div className="w-full space-y-2.5">
           {tasks.rows.map(([t, time]) => (
-            <div key={t} className="flex items-center gap-2 text-[11px]">
+            <div key={t} className="flex min-w-0 items-center gap-2 text-[11px]">
               <CheckCircle2 className="h-3.5 w-3.5 shrink-0" style={{ color: "var(--accent)" }} />
-              <span className="flex-1 truncate">{t}</span>
+              <span className="min-w-0 flex-1 truncate">{t}</span>
               <span className="text-muted-foreground tabular-nums">{time}</span>
             </div>
           ))}
