@@ -1,3 +1,4 @@
+import { type FormEvent, useState } from "react";
 import { ArrowRight, Mail, Phone } from "lucide-react";
 import { Reveal } from "./Reveal";
 
@@ -14,6 +15,53 @@ const INTEREST = [
 ];
 
 export function ContactSection() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: getFormValue(formData, "name"),
+      company: getFormValue(formData, "company"),
+      users_count: getFormValue(formData, "users_count"),
+      interest: getFormValue(formData, "interest"),
+      contact: getFormValue(formData, "contact"),
+      comment: getFormValue(formData, "comment"),
+      source: "lendingsfera",
+      website: getFormValue(formData, "website"),
+    };
+
+    if (!payload.name || !payload.contact) {
+      setStatus("error");
+      setErrorMessage("Заповніть ім'я та контакт.");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Lead request failed");
+      }
+
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+      setErrorMessage("Не вдалося надіслати заявку. Спробуйте ще раз.");
+    }
+  }
+
   return (
     <section id="contact" className="px-5 md:px-8 py-10 md:py-14">
       <Reveal>
@@ -52,19 +100,31 @@ export function ContactSection() {
               </div>
             </div>
 
-            <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Field label="Ваше ім'я" placeholder="Олена Коваль" />
-              <Field label="Компанія / Агентство" placeholder="Хатосфера Estate" />
-              <Select label="Кількість користувачів" options={USERS} />
-              <Select label="Що цікавить" options={INTEREST} />
-              <Field label="Контакт" placeholder="Telegram, WhatsApp або телефон" full />
-              <Field label="Коментар" placeholder="Необов'язково" textarea full />
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+              <Field name="name" label="Ваше ім'я" placeholder="Олена Коваль" required />
+              <Field name="company" label="Компанія / Агентство" placeholder="Хатосфера Estate" />
+              <Select name="users_count" label="Кількість користувачів" options={USERS} />
+              <Select name="interest" label="Що цікавить" options={INTEREST} />
+              <Field name="contact" label="Контакт" placeholder="Telegram, WhatsApp або телефон" required full />
+              <Field name="comment" label="Коментар" placeholder="Необов'язково" textarea full />
+              {status === "success" ? (
+                <div className="sm:col-span-2 rounded-xl px-3.5 py-3 text-sm font-medium" style={{ background: "color-mix(in oklab, var(--accent) 14%, var(--surface-2))", color: "var(--foreground)" }}>
+                  Заявку надіслано. Ми скоро зв'яжемося з вами.
+                </div>
+              ) : null}
+              {status === "error" ? (
+                <div className="sm:col-span-2 rounded-xl px-3.5 py-3 text-sm font-medium" style={{ background: "color-mix(in oklab, #ef4444 14%, var(--surface-2))", color: "var(--foreground)" }}>
+                  {errorMessage}
+                </div>
+              ) : null}
               <button
                 type="submit"
+                disabled={status === "loading"}
                 className="sm:col-span-2 mt-1 inline-flex items-center justify-center gap-2 h-12 rounded-full text-sm font-semibold transition-all hover:translate-y-[-1px]"
                 style={{ background: "var(--accent)", color: "var(--accent-foreground)", boxShadow: "0 14px 32px -14px var(--accent)" }}
               >
-                Надіслати заявку <ArrowRight className="h-4 w-4" />
+                {status === "loading" ? "Надсилання..." : "Надіслати заявку"} <ArrowRight className="h-4 w-4" />
               </button>
             </form>
           </div>
@@ -74,7 +134,12 @@ export function ContactSection() {
   );
 }
 
-function Field({ label, placeholder, full, textarea }: { label: string; placeholder: string; full?: boolean; textarea?: boolean }) {
+function getFormValue(formData: FormData, key: string): string {
+  const value = formData.get(key);
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function Field({ name, label, placeholder, full, textarea, required }: { name: string; label: string; placeholder: string; full?: boolean; textarea?: boolean; required?: boolean }) {
   const cls = `w-full rounded-xl px-3.5 py-3 text-sm outline-none transition-all`;
   const style: React.CSSProperties = {
     background: "var(--surface-2)",
@@ -85,23 +150,24 @@ function Field({ label, placeholder, full, textarea }: { label: string; placehol
     <label className={full ? "sm:col-span-2 block" : "block"}>
       <span className="block text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)] mb-1.5">{label}</span>
       {textarea ? (
-        <textarea rows={3} placeholder={placeholder} className={cls} style={style} />
+        <textarea name={name} rows={3} placeholder={placeholder} required={required} className={cls} style={style} />
       ) : (
-        <input placeholder={placeholder} className={cls} style={style} />
+        <input name={name} placeholder={placeholder} required={required} className={cls} style={style} />
       )}
     </label>
   );
 }
 
-function Select({ label, options }: { label: string; options: string[] }) {
+function Select({ name, label, options }: { name: string; label: string; options: string[] }) {
   return (
     <label className="block">
       <span className="block text-[10px] uppercase tracking-[0.18em] text-[var(--muted-foreground)] mb-1.5">{label}</span>
       <select
+        name={name}
         className="w-full rounded-xl px-3.5 py-3 text-sm outline-none"
         style={{ background: "var(--surface-2)", border: "1px solid var(--border-soft)", color: "var(--foreground)" }}
       >
-        <option>Оберіть варіант</option>
+        <option value="">Оберіть варіант</option>
         {options.map((o) => <option key={o}>{o}</option>)}
       </select>
     </label>
