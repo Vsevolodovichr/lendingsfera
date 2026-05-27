@@ -15,9 +15,9 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <ThemeProvider>     
+    < <Header /> 
       <div className="min-h-screen w-full ">
-        <Header /> 
+       
         <main
           className="mx-auto max-w-330 rounded-[24px] overflow-hidden relative"
           style={{
