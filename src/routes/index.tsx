@@ -15,7 +15,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    < <Header /> 
+    <ThemeProvider>
+ <Header /> 
       <div className="min-h-screen w-full ">
        
         <main
