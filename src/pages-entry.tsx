@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "@tanstack/react-router";
 
 import { getRouter } from "./router";
-import "./style.css";
+import "./styles.css";
 
 const rootElement = document.getElementById("root");
 
