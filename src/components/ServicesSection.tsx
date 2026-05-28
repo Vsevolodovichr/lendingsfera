@@ -92,11 +92,11 @@ export function ServicesSection() {
           return (
             <Reveal key={c.title} delay={i * 60}>
               <div
-                className="rounded-2xl p-5 h-full surface-pop transition-all duration-500"
+                className="rounded-2xl p-5 h-full surface-pop transition-[transform,border-color,box-shadow] duration-200"
                 style={{
-                  transform: on ? "translateY(-4px)" : "none",
+                  transform: on ? "translateY(-2px)" : "none",
                   border: on ? "1.5px solid var(--border-strong)" : "1px solid var(--border-soft)",
-                  boxShadow: on ? "0 24px 50px -22px var(--accent)" : "var(--shadow-card)",
+                  boxShadow: on ? "0 10px 24px -20px var(--accent)" : "var(--shadow-card)",
                 }}
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -125,3 +125,5 @@ export function ServicesSection() {
     </section>
   );
 }
+
+

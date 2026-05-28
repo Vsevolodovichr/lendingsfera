@@ -1,11 +1,12 @@
-import { ArrowRight, ShieldCheck } from "lucide-react";
-import type { PointerEvent } from "react";
+import { ArrowRight } from "lucide-react";
+import { useRef, type PointerEvent } from "react";
 import { useTheme } from "./ThemeProvider";
 import { StatsStrip } from "./StatsStrip";
 import { HeroVisual } from "./HeroVisual";
 
 export function Hero() {
   const { theme } = useTheme();
+  const frameRef = useRef<number | null>(null);
   const dark = theme === "dark";
 
   const desc = dark
@@ -14,21 +15,54 @@ export function Hero() {
   const primaryCTA = dark ? "Залишити заявку" : "Отримати консультацію";
   const secondaryCTA = dark ? "Переглянути тарифи" : "Дивитись можливості";
 
+  function shouldSkipParallax(element: HTMLElement) {
+    if (typeof window === "undefined") return true;
+    return (
+      element.clientWidth < 1024 ||
+      window.matchMedia("(pointer: coarse), (prefers-reduced-motion: reduce)").matches
+    );
+  }
+
+  function resetParallax(element: HTMLElement) {
+    element.style.setProperty("--mx", "0px");
+    element.style.setProperty("--my", "0px");
+    element.style.setProperty("--rx", "0deg");
+    element.style.setProperty("--ry", "0deg");
+  }
+
   function onPointerMove(event: PointerEvent<HTMLElement>) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-    event.currentTarget.style.setProperty("--mx", `${(x * 18).toFixed(2)}px`);
-    event.currentTarget.style.setProperty("--my", `${(y * 14).toFixed(2)}px`);
-    event.currentTarget.style.setProperty("--rx", `${(-y * 1.4).toFixed(2)}deg`);
-    event.currentTarget.style.setProperty("--ry", `${(x * 1.8).toFixed(2)}deg`);
+    const section = event.currentTarget;
+    if (shouldSkipParallax(section)) {
+      resetParallax(section);
+      return;
+    }
+
+    const clientX = event.clientX;
+    const clientY = event.clientY;
+
+    if (frameRef.current !== null) {
+      window.cancelAnimationFrame(frameRef.current);
+    }
+
+    frameRef.current = window.requestAnimationFrame(() => {
+      const rect = section.getBoundingClientRect();
+      const x = (clientX - rect.left) / rect.width - 0.5;
+      const y = (clientY - rect.top) / rect.height - 0.5;
+
+      section.style.setProperty("--mx", `${(x * 12).toFixed(2)}px`);
+      section.style.setProperty("--my", `${(y * 9).toFixed(2)}px`);
+      section.style.setProperty("--rx", "0deg");
+      section.style.setProperty("--ry", "0deg");
+      frameRef.current = null;
+    });
   }
 
   function onPointerLeave(event: PointerEvent<HTMLElement>) {
-    event.currentTarget.style.setProperty("--mx", "0px");
-    event.currentTarget.style.setProperty("--my", "0px");
-    event.currentTarget.style.setProperty("--rx", "0deg");
-    event.currentTarget.style.setProperty("--ry", "0deg");
+    if (frameRef.current !== null) {
+      window.cancelAnimationFrame(frameRef.current);
+      frameRef.current = null;
+    }
+    resetParallax(event.currentTarget);
   }
 
   return (
@@ -62,7 +96,7 @@ export function Hero() {
 
           <div className="mt-6 flex flex-col sm:flex-row gap-5">
             <button
-              className="inline-flex items-center justify-center gap-2 h-12 px-10 rounded-lg text-sm font-semibold transition-all hover:-translate-y-px"
+              className="inline-flex items-center justify-center gap-2 h-12 px-10 rounded-lg text-sm font-semibold transition-transform hover:-translate-y-px"
               style={{ background: "var(--accent)", color: "var(--accent-foreground)", boxShadow: "0 10px 30px -10px var(--accent)" }}
             >
               {primaryCTA} <ArrowRight className="h-4 w-4" />
@@ -84,3 +118,5 @@ export function Hero() {
     </section>
   );
 }
+
+

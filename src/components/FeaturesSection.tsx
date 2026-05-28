@@ -105,7 +105,7 @@ export function FeaturesSection() {
               <button
                 key={tab.key}
                 onClick={() => setActive(i)}
-                className="sm:inline-flex flex-col-1 justify-center  sm:items-center items-center w-full gap-0.5 sm:gap-2 h-9 px:2 sm:px-4.5 rounded-lg text-[0px] sm:text-[12px] font-medium  transition-all"
+                className="sm:inline-flex flex-col-1 justify-center  sm:items-center items-center w-full gap-0.5 sm:gap-2 h-9 px:2 sm:px-4.5 rounded-lg text-[0px] sm:text-[12px] font-medium transition-colors duration-200"
                 style={{
                   background: on ? "var(--accent)" : "var(--surface-2)",
                   color: on ? "var(--accent-foreground)" : "var(--muted-foreground)",
@@ -124,7 +124,7 @@ export function FeaturesSection() {
 
       <div className="grid lg:grid-cols-[1.05fr_1fr] gap-5">
         <Reveal>
-          <div key={t.key} className="surface-pop rounded-3xl p-6 sm:p-14 dot-grid animate-[fadeIn_500ms_ease]">
+          <div key={t.key} className="surface-pop rounded-3xl p-6 sm:p-14 dot-grid">
             <div className="flex items-center gap-3 mb-4">
               <div className="grid place-items-center h-11 w-11 rounded-xl"
                 style={{ background: "color-mix(in oklab, var(--accent) 14%, var(--surface-2))" }}>
@@ -182,14 +182,14 @@ function FeatureMock({ active }: { active: number }) {
           return (
             <div
               key={i}
-              className="rounded-xl p-3 transition-all duration-500"
+              className="rounded-xl p-3 transition-[background-color,border-color,transform] duration-200"
               style={{
                 background: focused
                   ? "linear-gradient(180deg, color-mix(in oklab, var(--accent) 14%, var(--surface-2)), var(--surface-2))"
                   : "var(--surface-2)",
                 border: focused ? "1px solid var(--border-strong)" : "1px solid var(--border-soft)",
-                transform: focused ? "translateY(-2px) scale(1.02)" : "none",
-                boxShadow: focused ? "0 16px 36px -18px var(--accent)" : "none",
+                transform: focused ? "translateY(-1px)" : "none",
+                boxShadow: "none",
               }}
             >
               <div className="h-12 rounded-md mb-2" style={{ background: "var(--surface-3)" }} />
@@ -218,7 +218,7 @@ function FeatureMock({ active }: { active: number }) {
             return (
               <div
                 key={i}
-                className="rounded-sm transition-all duration-500"
+                className="rounded-sm transition-[height,background-color] duration-200"
                 style={{
                   height: `${h}%`,
                   background: on ? "linear-gradient(180deg, var(--accent), var(--accent-2))" : "var(--surface-3)",
@@ -231,3 +231,5 @@ function FeatureMock({ active }: { active: number }) {
     </div>
   );
 }
+
+

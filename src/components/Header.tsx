@@ -43,7 +43,7 @@ export function Header() {
         </button>
 
         <button
-          className="hidden md:inline-flex items-center gap-2 h-10 px-4 rounded-full text-sm font-medium transition-all hover:-translate-y-px"
+          className="hidden md:inline-flex items-center gap-2 h-10 px-4 rounded-full text-sm font-medium transition-transform hover:-translate-y-px"
           style={{ background: "var(--accent)", color: "var(--accent-foreground)" }}
         >
           {ctaLabel}
@@ -75,3 +75,5 @@ export function Header() {
     </header>
   );
 }
+
+

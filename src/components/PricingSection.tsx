@@ -135,7 +135,7 @@ export function PricingSection() {
               const on = mode === m;
               return (
                 <button key={m} onClick={() => setMode(m)}
-                  className="h-9 px-4 rounded-full transition-all"
+                  className="h-9 px-4 rounded-full transition-colors duration-200"
                   style={{
                     background: on ? "var(--accent)" : "transparent",
                     color: on ? "var(--accent-foreground)" : "var(--muted-foreground)",
@@ -156,10 +156,10 @@ export function PricingSection() {
           return (
             <Reveal key={p.name} delay={i * 70}>
               <div
-                className="relative rounded-2xl p-5 h-full surface-pop transition-all duration-500"
+                className="relative rounded-2xl p-5 h-full surface-pop transition-[transform,border-color,box-shadow] duration-200"
                 style={{
-                  transform: isFocus ? "translateY(-6px) scale(1.015)" : "none",
-                  boxShadow: isFocus ? "0 30px 60px -24px var(--accent)" : "var(--shadow-card)",
+                  transform: isFocus ? "translateY(-2px)" : "none",
+                  boxShadow: isFocus ? "0 12px 28px -22px var(--accent)" : "var(--shadow-card)",
                   border: ring ? "1.5px solid var(--border-strong)" : "1px solid var(--border-soft)",
                 }}
               >
@@ -194,10 +194,10 @@ export function PricingSection() {
                 </ul>
 
                 <button
-                  className="mt-5 w-full h-10 rounded-full text-[12px] font-semibold transition-all"
+                  className="mt-5 w-full h-10 rounded-full text-[12px] font-semibold transition-colors duration-200"
                   style={
                     isPop || isFocus
-                      ? { background: "var(--accent)", color: "var(--accent-foreground)", boxShadow: "0 12px 28px -14px var(--accent)" }
+                      ? { background: "var(--accent)", color: "var(--accent-foreground)", boxShadow: "0 8px 18px -16px var(--accent)" }
                       : { background: "var(--surface-2)", color: "var(--foreground)", border: "1px solid var(--border-soft)" }
                   }
                 >
@@ -225,3 +225,5 @@ export function PricingSection() {
     </section>
   );
 }
+
+

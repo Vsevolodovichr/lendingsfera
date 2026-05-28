@@ -24,7 +24,7 @@ function Index() {
           style={{
             background: "linear-gradient(180deg, var(--surface), var(--surface-2))",
             border: "1px solid var(--border)",
-            boxShadow: "var(--shadow-pop)",
+            boxShadow: "var(--shadow-card)",
           }}
         >
           <div className="absolute inset-0 dot-grid opacity-50 pointer-events-none" />
@@ -42,3 +42,5 @@ function Index() {
     </ThemeProvider>
   );
 }
+
+

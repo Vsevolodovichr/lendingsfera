@@ -121,7 +121,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="sm:col-span-2 mt-1 inline-flex items-center justify-center gap-2 h-12 rounded-full text-sm font-semibold transition-all hover:translate-y-[-1px]"
+                className="sm:col-span-2 mt-1 inline-flex items-center justify-center gap-2 h-12 rounded-full text-sm font-semibold transition-transform hover:translate-y-[-1px]"
                 style={{ background: "var(--accent)", color: "var(--accent-foreground)", boxShadow: "0 14px 32px -14px var(--accent)" }}
               >
                 {status === "loading" ? "Надсилання..." : "Надіслати заявку"} <ArrowRight className="h-4 w-4" />
@@ -140,7 +140,7 @@ function getFormValue(formData: FormData, key: string): string {
 }
 
 function Field({ name, label, placeholder, full, textarea, required }: { name: string; label: string; placeholder: string; full?: boolean; textarea?: boolean; required?: boolean }) {
-  const cls = `w-full rounded-xl px-3.5 py-3 text-sm outline-none transition-all`;
+  const cls = `w-full rounded-xl px-3.5 py-3 text-sm outline-none transition-colors duration-200`;
   const style: React.CSSProperties = {
     background: "var(--surface-2)",
     border: "1px solid var(--border-soft)",
@@ -173,3 +173,5 @@ function Select({ name, label, options }: { name: string; label: string; options
     </label>
   );
 }
+
+

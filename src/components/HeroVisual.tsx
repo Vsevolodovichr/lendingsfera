@@ -94,8 +94,7 @@ export function HeroVisual() {
       <img
         src={dark ? buildDark : buildLight}
         alt="Building"
-        className="hero-building-image absolute inset-0 w-full h-full object-contain object-center drop-shadow-2xl transform-gpu scale-[1.12]"
-        style={{ filter: dark ? "drop-shadow(0 30px 60px rgba(0,0,0,0.6))" : "drop-shadow(0 20px 40px rgba(70,90,110,0.15))" }}
+        className="hero-building-image absolute inset-0 w-full h-full object-contain object-center scale-[1.08]"
       />
 <div className="hero-card-field hero-card-canvas absolute inset-0 origin-left scale-[0.9]" aria-label="Інтерактивні картки Хатосфера CRM">
       {/* Top deals card */}
@@ -182,3 +181,5 @@ export function HeroVisual() {
     </div>
   );
 }
+
+

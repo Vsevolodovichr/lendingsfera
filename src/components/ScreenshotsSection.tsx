@@ -38,12 +38,12 @@ export function ScreenshotsSection() {
               <button
                 key={s.k}
                 onClick={() => setActive(i)}
-                className="h-9 px-3.5 rounded-lg text-[9px] sm:text-[12px] font-medium transition-all"
+                className="h-9 px-3.5 rounded-lg text-[9px] sm:text-[12px] font-medium transition-colors duration-200"
                 style={{
                   background: on ? "var(--accent)" : "var(--surface-2)",
                   color: on ? "var(--accent-foreground)" : "var(--muted-foreground)",
                   border: on ? "1px solid var(--accent)" : "1px solid var(--border-soft)",
-                  boxShadow: on ? "0 8px 20px -10px var(--accent)" : "none",
+                  boxShadow: "none",
                 }}
               >
                 {s.label}
@@ -127,7 +127,7 @@ function DesktopMock({ variant }: { variant: number }) {
               {Array.from({ length: 14 }).map((_, i) => {
                 const h = 20 + ((i * 23 + variant * 19) % 75);
                 const on = i === (variant * 3) % 14;
-                return <div key={i} className="rounded-sm transition-all duration-500" style={{
+                return <div key={i} className="rounded-sm transition-[height,background-color] duration-200" style={{
                   height: `${h}%`,
                   background: on ? "linear-gradient(180deg, var(--accent), var(--accent-2))" : "var(--surface-3)",
                 }} />;
@@ -143,7 +143,7 @@ function DesktopMock({ variant }: { variant: number }) {
 function PhoneMock({ variant }: { variant: number }) {
   return (
     <div className="mx-auto rounded-[36px] p-2.5 w-55 h-110"
-      style={{ background: "var(--surface-3)", border: "1px solid var(--border)", boxShadow: "var(--shadow-pop)" }}>
+      style={{ background: "var(--surface-3)", border: "1px solid var(--border)", boxShadow: "var(--shadow-card)" }}>
       <div className="h-full w-full rounded-[28px] overflow-hidden" style={{ background: "var(--surface)" }}>
         <div className="h-6 flex items-center justify-center text-[8px] text-muted-foreground" style={{ background: "var(--surface-2)" }}>
           09:41
@@ -152,7 +152,7 @@ function PhoneMock({ variant }: { variant: number }) {
           <div className="text-[10px] text-muted-foreground">Хатосфера CRM</div>
           <div className="text-sm font-bold">Привіт, Олено 👋</div>
           {[0, 1, 2, 3].map((i) => (
-            <div key={i} className="rounded-lg p-2 transition-all duration-500"
+            <div key={i} className="rounded-lg p-2 transition-[background-color,border-color] duration-200"
               style={{
                 background: i === variant % 4 ? "color-mix(in oklab, var(--accent) 14%, var(--surface-2))" : "var(--surface-2)",
                 border: i === variant % 4 ? "1px solid var(--border-strong)" : "1px solid var(--border-soft)",
@@ -177,3 +177,5 @@ function PhoneMock({ variant }: { variant: number }) {
     </div>
   );
 }
+
+
