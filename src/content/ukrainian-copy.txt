@@ -1,0 +1,269 @@
+index.html:6: <title>Хатосфера CRM для нерухомості | hatosfera.business</title>
+index.html:9: content="Хатосфера CRM допомагає агентствам нерухомості вести об'єкти, клієнтів, угоди, задачі, аналітику та AI-метчинг в одній системі."
+index.html:17: <meta property="og:title" content="Хатосфера CRM для агентств нерухомості" />
+index.html:20: content="CRM для українського ринку нерухомості: об'єкти, клієнти, угоди, задачі, аналітика та AI-метчинг."
+index.html:23: <meta name="twitter:title" content="Хатосфера CRM для агентств нерухомості" />
+index.html:26: content="Керуйте агентством нерухомості в одній CRM: база об'єктів, клієнти, угоди, задачі й аналітика."
+index.html:32: "name": "Хатосфера CRM",
+index.html:36: "description": "CRM для агентств нерухомості України: об'єкти, клієнти, угоди, задачі, аналітика та AI-метчинг.",
+index.html:46: "name": "Хатосфера",
+src/components/ContactSection.tsx:5: const USERS = ["1 (приватний рієлтор)", "2–3", "4–10", "11–25", "26–50", "50+"];
+src/components/ContactSection.tsx:7: "Щомісячна підписка",
+src/components/ContactSection.tsx:8: "Річна ліцензія",
+src/components/ContactSection.tsx:9: "Дворічна ліцензія",
+src/components/ContactSection.tsx:10: "Пожиттєвий доступ",
+src/components/ContactSection.tsx:11: "Індивідуальна CRM",
+src/components/ContactSection.tsx:12: "Сайт для агентства",
+src/components/ContactSection.tsx:13: "Інтеграції",
+src/components/ContactSection.tsx:14: "Консультація",
+src/components/ContactSection.tsx:18: { icon: MonitorSmartphone, label: "Демо 15 хв", text: "покажемо CRM на вашому сценарії" },
+src/components/ContactSection.tsx:19: { icon: Clock3, label: "Відповідь", text: "у робочий день після заявки" },
+src/components/ContactSection.tsx:20: { icon: ShieldCheck, label: "Після заявки", text: "узгодимо тариф, дані та запуск" },
+src/components/ContactSection.tsx:45: setErrorMessage("Заповніть ім'я та контакт.");
+src/components/ContactSection.tsx:67: setErrorMessage("Не вдалося надіслати заявку. Спробуйте ще раз.");
+src/components/ContactSection.tsx:81: Заявка
+src/components/ContactSection.tsx:84: Залиште <span className="text-gradient-accent">заявку</span>
+src/components/ContactSection.tsx:87: Ми зв'яжемося з вами для консультації, демонстрації та індивідуального розрахунку.
+src/components/ContactSection.tsx:105: Сайт
+src/components/ContactSection.tsx:156: <Field name="name" label="Ваше ім'я" placeholder="Олена Коваль" required />
+src/components/ContactSection.tsx:157: <Field name="company" label="Компанія / Агентство" placeholder="Хатосфера Estate" />
+src/components/ContactSection.tsx:158: <Select name="users_count" label="Кількість користувачів" options={USERS} />
+src/components/ContactSection.tsx:159: <Select name="interest" label="Що цікавить" options={INTEREST} />
+src/components/ContactSection.tsx:162: label="Контакт"
+src/components/ContactSection.tsx:163: placeholder="Telegram, WhatsApp або телефон"
+src/components/ContactSection.tsx:167: <Field name="comment" label="Коментар" placeholder="Необов'язково" textarea full />
+src/components/ContactSection.tsx:177: Заявку надіслано. Ми скоро зв'яжемося з вами.
+src/components/ContactSection.tsx:202: {status === "loading" ? "Надсилання..." : "Надіслати заявку"}{" "}
+src/components/ContactSection.tsx:281: <option value="">Оберіть варіант</option>
+src/components/DemoInfoWidget.tsx:5: { icon: Clock3, label: "15 хв", text: "короткий огляд CRM" },
+src/components/DemoInfoWidget.tsx:6: { icon: MonitorSmartphone, label: "Web + PWA", text: "десктоп і мобільний сценарій" },
+src/components/DemoInfoWidget.tsx:7: { icon: Sparkles, label: "AI", text: "метчинг клієнт ↔ об'єкт" },
+src/components/DemoInfoWidget.tsx:44: <span className="block text-sm font-semibold leading-tight">Демо Хатосфера CRM</span>
+src/components/DemoInfoWidget.tsx:49: Подивитись можливості системи
+src/components/DemoInfoWidget.tsx:88: Запланувати демо
+src/components/FeaturesSection.tsx:19: label: "Об'єкти",
+src/components/FeaturesSection.tsx:21: title: "База об'єктів без хаосу",
+src/components/FeaturesSection.tsx:22: desc: "Квартири, будинки, комерція, земля, фото, документи, статуси й відповідальні менеджери в одному просторі.",
+src/components/FeaturesSection.tsx:24: "Пошук і фільтрація",
+src/components/FeaturesSection.tsx:25: "Статус та тип операції",
+src/components/FeaturesSection.tsx:26: "Прив'язка до клієнтів",
+src/components/FeaturesSection.tsx:27: "Історія змін",
+src/components/FeaturesSection.tsx:29: stat: { value: "30 000+", label: "об'єктів у системі" },
+src/components/FeaturesSection.tsx:33: label: "Клієнти",
+src/components/FeaturesSection.tsx:35: title: "Клієнти й історія взаємодій",
+src/components/FeaturesSection.tsx:36: desc: "Картка клієнта з усіма контактами, інтересами, запитами та повним журналом комунікацій.",
+src/components/FeaturesSection.tsx:37: bullets: ["Сегментація бази", "Нотатки та теги", "Прив'язки до угод", "Імпорт з Excel"],
+src/components/FeaturesSection.tsx:38: stat: { value: "100 000+", label: "клієнтів у мережах" },
+src/components/FeaturesSection.tsx:42: label: "Угоди",
+src/components/FeaturesSection.tsx:44: title: "Воронка угод під контролем",
+src/components/FeaturesSection.tsx:45: desc: "Kanban-етапи, прогноз закриття, нагадування й автоматичні переходи між статусами.",
+src/components/FeaturesSection.tsx:46: bullets: ["Етапи Kanban", "Шаблони документів", "Прогноз доходу", "Авто-нагадування"],
+src/components/FeaturesSection.tsx:47: stat: { value: "+24%", label: "конверсії в угоду" },
+src/components/FeaturesSection.tsx:51: label: "Завдання",
+src/components/FeaturesSection.tsx:53: title: "Командний календар і задачі",
+src/components/FeaturesSection.tsx:54: desc: "Завдання прив'язані до клієнтів та об'єктів. Нагадування у Telegram і push.",
+src/components/FeaturesSection.tsx:55: bullets: ["Командний календар", "Push та Telegram", "Делегування", "Контроль виконання"],
+src/components/FeaturesSection.tsx:56: stat: { value: "24/7", label: "у мобільній PWA" },
+src/components/FeaturesSection.tsx:60: label: "Аналітика",
+src/components/FeaturesSection.tsx:62: title: "Глибока аналітика агентства",
+src/components/FeaturesSection.tsx:63: desc: "Дашборди по менеджерах, джерелах, етапах і виторгу. Експорт у PDF та Excel.",
+src/components/FeaturesSection.tsx:64: bullets: ["Дашборди менеджерів", "Звіти за період", "Експорт PDF/Excel", "ROI по джерелах"],
+src/components/FeaturesSection.tsx:65: stat: { value: "12+", label: "готових звітів" },
+src/components/FeaturesSection.tsx:69: label: "AI-метчинг",
+src/components/FeaturesSection.tsx:71: title: "AI-метчинг клієнт ↔ об'єкт",
+src/components/FeaturesSection.tsx:72: desc: "Алгоритм підбирає кращі об'єкти під запит клієнта та підсвічує пріоритетні угоди.",
+src/components/FeaturesSection.tsx:73: bullets: ["Авто-підбір об'єктів", "Скоринг лідів", "AI-поради менеджеру", "Розширений матчинг"],
+src/components/FeaturesSection.tsx:74: stat: { value: "AI", label: "у тарифі від «Активне»" },
+src/components/FeaturesSection.tsx:78: label: "Документи",
+src/components/FeaturesSection.tsx:80: title: "Документи та шаблони",
+src/components/FeaturesSection.tsx:81: desc: "Готові договори, акти й рахунки. Підстановка реквізитів за один клік.",
+src/components/FeaturesSection.tsx:82: bullets: ["Шаблони договорів", "Авто-реквізити", "Експорт PDF", "Зберігання у картці"],
+src/components/FeaturesSection.tsx:83: stat: { value: "5–150 ГБ", label: "файлів у тарифах" },
+src/components/FeaturesSection.tsx:90: ["ЖК Central Park", "Продаж · 92 м²", "$148 000", "Активне"],
+src/components/FeaturesSection.tsx:91: ["Ірина К.", "Запит · 2 кімнати", "Печерськ", "Новий"],
+src/components/FeaturesSection.tsx:92: ["Угода #1842", "Бронювання", "75%", "В роботі"],
+src/components/FeaturesSection.tsx:93: ["Показ сьогодні", "Менеджер Олена", "14:30", "Задача"],
+src/components/FeaturesSection.tsx:94: ["Джерело OLX", "Ліди за тиждень", "+18%", "Звіт"],
+src/components/FeaturesSection.tsx:95: ["AI-підбір", "5 збігів", "89%", "Матч"],
+src/components/FeaturesSection.tsx:125: Функціонал
+src/components/FeaturesSection.tsx:128: Все що потрібно <span className="text-gradient-accent">агентству</span>
+src/components/FeaturesSection.tsx:131: CRM створена для агентств, рієлторів, керівників відділів та девелоперів.
+src/components/FeaturesSection.tsx:269: <span className="text-muted-foreground">Активність сьогодні</span>
+src/components/Footer.tsx:12: <img src={logo} alt="Хатосфера" className="h-7 w-7 object-contain" />
+src/components/Footer.tsx:15: Хатосфера <span className="text-gradient-accent">CRM</span>
+src/components/Footer.tsx:18: CRM для ринку нерухомості України
+src/components/Footer.tsx:24: Функціонал
+src/components/Footer.tsx:27: Інтерфейс
+src/components/Footer.tsx:30: Тарифи
+src/components/Footer.tsx:33: Розширення
+src/components/Footer.tsx:36: Зв'язатись
+src/components/Footer.tsx:40: © 2026 Хатосфера ·{" "}
+src/components/Header.tsx:8: { label: "Функції", href: "#features" },
+src/components/Header.tsx:9: { label: "Інтерфейс", href: "#screens" },
+src/components/Header.tsx:10: { label: "Тарифи", href: "#pricing" },
+src/components/Header.tsx:11: { label: "Послуги", href: "#services" },
+src/components/Header.tsx:12: { label: "Контакти", href: "#contact" },
+src/components/Header.tsx:18: const ctaLabel = theme === "dark" ? "Залишити заявку" : "Отримати консультацію";
+src/components/Header.tsx:23: <a href="/" className="flex items-center gap-2.5" aria-label="Хатосфера CRM">
+src/components/Header.tsx:24: <img src={logo} alt="Хатосфера" className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
+src/components/Header.tsx:26: Хатосфера <span className="text-gradient-accent">CRM</span>
+src/components/Header.tsx:44: aria-label="Перемкнути тему"
+src/components/Header.tsx:65: aria-label="Відкрити меню"
+src/components/Header.tsx:96: Залишити заявку <ArrowRight className="h-4 w-4" />
+src/components/Hero.tsx:13: ? "Система, що тримає агентство в порядку"
+src/components/Hero.tsx:14: : "Мʼяка система для жорсткого контролю процесів";
+src/components/Hero.tsx:15: const primaryCTA = dark ? "Залишити заявку" : "Отримати консультацію";
+src/components/Hero.tsx:16: const secondaryCTA = dark ? "Переглянути тарифи" : "Дивитись можливості";
+src/components/Hero.tsx:84: Для агентств нерухомості
+src/components/Hero.tsx:88: Хатосфера <span className="text-gradient-accent">CRM</span>
+src/components/Hero.tsx:92: CRM для ринку нерухомості України
+src/components/HeroVisual.tsx:13: alt="Візуал будівлі для Хатосфера CRM"
+src/components/PricingSection.tsx:20: tag: "Приватний рієлтор",
+src/components/PricingSection.tsx:21: name: "Особистий Профі",
+src/components/PricingSection.tsx:23: monthlyUnit: "грн/міс",
+src/components/PricingSection.tsx:24: license1y: "21 750 грн",
+src/components/PricingSection.tsx:25: license2y: "39 150 грн",
+src/components/PricingSection.tsx:26: lifetime: "після 3 років",
+src/components/PricingSection.tsx:27: desc: "Для самостійної роботи",
+src/components/PricingSection.tsx:29: "До 300 об'єктів нерухомості",
+src/components/PricingSection.tsx:30: "До 1 000 клієнтів",
+src/components/PricingSection.tsx:31: "Угоди та задачі без обмежень",
+src/components/PricingSection.tsx:32: "Особистий календар",
+src/components/PricingSection.tsx:33: "Мобільна PWA-версія",
+src/components/PricingSection.tsx:34: "До 5 ГБ файлів/фото",
+src/components/PricingSection.tsx:38: tag: "Невелике агентство",
+src/components/PricingSection.tsx:39: name: "Агентство",
+src/components/PricingSection.tsx:41: monthlyUnit: "грн/міс",
+src/components/PricingSection.tsx:42: license1y: "79 000 грн",
+src/components/PricingSection.tsx:43: license2y: "142 200 грн",
+src/components/PricingSection.tsx:44: lifetime: "після 3 років",
+src/components/PricingSection.tsx:45: desc: "Для команд 2–10 людей",
+src/components/PricingSection.tsx:47: "До 1 500 об'єктів",
+src/components/PricingSection.tsx:48: "До 5 000 клієнтів",
+src/components/PricingSection.tsx:49: "Командний календар",
+src/components/PricingSection.tsx:50: "Ролі та права доступу",
+src/components/PricingSection.tsx:51: "Внутрішній чат",
+src/components/PricingSection.tsx:52: "1 групова навчальна сесія",
+src/components/PricingSection.tsx:56: tag: "Активне агентство",
+src/components/PricingSection.tsx:57: name: "Бізнес",
+src/components/PricingSection.tsx:59: monthlyUnit: "грн/міс",
+src/components/PricingSection.tsx:60: license1y: "149 000 грн",
+src/components/PricingSection.tsx:61: license2y: "268 200 грн",
+src/components/PricingSection.tsx:62: lifetime: "після 3 років",
+src/components/PricingSection.tsx:63: desc: "До 5 000 об'єктів, 25 000 клієнтів",
+src/components/PricingSection.tsx:66: "До 3 філій або відділів",
+src/components/PricingSection.tsx:67: "Шаблони документів",
+src/components/PricingSection.tsx:68: "Розширена аналітика",
+src/components/PricingSection.tsx:69: "AI-метчинг клієнт ↔ об'єкт",
+src/components/PricingSection.tsx:70: "До 50 ГБ файлів/фото",
+src/components/PricingSection.tsx:71: "До 3 навчальних сесій",
+src/components/PricingSection.tsx:75: tag: "Велике агентство / мережа",
+src/components/PricingSection.tsx:76: name: "Елітна Мережа",
+src/components/PricingSection.tsx:78: monthlyUnit: "грн/міс",
+src/components/PricingSection.tsx:79: license1y: "299 000 грн",
+src/components/PricingSection.tsx:80: license2y: "538 200 грн",
+src/components/PricingSection.tsx:81: lifetime: "після 3 років",
+src/components/PricingSection.tsx:82: desc: "Для мережевих агентств",
+src/components/PricingSection.tsx:84: "До 15 000 об'єктів, 100 000 клієнтів",
+src/components/PricingSection.tsx:85: "До 10 філій",
+src/components/PricingSection.tsx:86: "Топ-менеджерський дашборд",
+src/components/PricingSection.tsx:87: "Розширений AI-метчинг",
+src/components/PricingSection.tsx:88: "Персональний менеджер",
+src/components/PricingSection.tsx:89: "SLA-підтримка до 12 годин",
+src/components/PricingSection.tsx:93: tag: "Мережі, девелопери, франшизи",
+src/components/PricingSection.tsx:94: name: "Корпоративний",
+src/components/PricingSection.tsx:95: monthly: "від 49 900",
+src/components/PricingSection.tsx:96: monthlyUnit: "грн/міс",
+src/components/PricingSection.tsx:97: license1y: "від 499 000 грн",
+src/components/PricingSection.tsx:98: license2y: "індивідуально",
+src/components/PricingSection.tsx:99: lifetime: "за домовленістю",
+src/components/PricingSection.tsx:100: desc: "Для великих компаній",
+src/components/PricingSection.tsx:102: "Індивідуальні ліміти",
+src/components/PricingSection.tsx:103: "Окрема інфраструктура",
+src/components/PricingSection.tsx:104: "Персональні модулі та API",
+src/components/PricingSection.tsx:105: "Індивідуальні інтеграції",
+src/components/PricingSection.tsx:106: "Розширена безпека",
+src/components/PricingSection.tsx:107: "White Label за домовленістю",
+src/components/PricingSection.tsx:124: Тарифи
+src/components/PricingSection.tsx:127: Оберіть <span className="text-gradient-accent">свій план</span>
+src/components/PricingSection.tsx:130: Щомісячна підписка або ліцензія — гнучкі умови для будь-якого масштабу бізнесу.
+src/components/PricingSection.tsx:147: {m === "monthly" ? "Щомісячно" : "Ліцензія"}
+src/components/PricingSection.tsx:174: Найпопулярніший
+src/components/PricingSection.tsx:191: 2 роки: {p.license2y} · довічно: {p.lifetime}
+src/components/PricingSection.tsx:225: {p.name === "Корпоративний" ? "Обговорити умови" : "Обрати план"}
+src/components/PricingSection.tsx:238: Разова оплата на 1 рік, 2 роки або пожиттєво — для довгого горизонту.
+src/components/PricingSection.tsx:246: Подивитись ліцензії →
+src/components/ScreenshotsSection.tsx:6: { label: "Дашборд керівника", k: "dash" },
+src/components/ScreenshotsSection.tsx:7: { label: "Воронка угод", k: "funnel" },
+src/components/ScreenshotsSection.tsx:8: { label: "Картка об'єкта", k: "obj" },
+src/components/ScreenshotsSection.tsx:9: { label: "Картка клієнта", k: "cli" },
+src/components/ScreenshotsSection.tsx:10: { label: "AI-метчинг", k: "ai" },
+src/components/ScreenshotsSection.tsx:13: const KPI_LABELS = ["Ліди", "Покази", "Угоди", "Дохід"];
+src/components/ScreenshotsSection.tsx:15: ["Олександр П.", "3-кімн. · Центр", "$132k"],
+src/components/ScreenshotsSection.tsx:16: ["ЖК River Park", "Продаж · 74 м²", "$96k"],
+src/components/ScreenshotsSection.tsx:17: ["Марина Л.", "Комерція · оренда", "₴42k"],
+src/components/ScreenshotsSection.tsx:18: ["AI матч", "5 об'єктів", "91%"],
+src/components/ScreenshotsSection.tsx:19: ["Задача", "Показ сьогодні", "14:30"],
+src/components/ScreenshotsSection.tsx:39: Інтерфейс
+src/components/ScreenshotsSection.tsx:42: Подивіться, як <span className="text-gradient-accent">виглядає CRM</span>
+src/components/ScreenshotsSection.tsx:45: Чисті інтерфейси для десктопу й мобільного PWA: керівник, менеджер і рієлтор бачать
+src/components/ScreenshotsSection.tsx:46: потрібні дані без зайвого шуму.
+src/components/ScreenshotsSection.tsx:119: "Дашборд",
+src/components/ScreenshotsSection.tsx:120: "Об'єкти",
+src/components/ScreenshotsSection.tsx:121: "Клієнти",
+src/components/ScreenshotsSection.tsx:122: "Угоди",
+src/components/ScreenshotsSection.tsx:123: "Завдання",
+src/components/ScreenshotsSection.tsx:124: "Аналітика",
+src/components/ScreenshotsSection.tsx:126: "Документи",
+src/components/ScreenshotsSection.tsx:162: {["Нові", "Перегляд", "Перемовини", "Угода"].map((s, i) => (
+src/components/ScreenshotsSection.tsx:204: <div className="text-[10px] text-muted-foreground mb-2">Динаміка по тижнях</div>
+src/components/ScreenshotsSection.tsx:254: <div className="text-[10px] text-muted-foreground">Хатосфера CRM</div>
+src/components/ScreenshotsSection.tsx:255: <div className="text-sm font-bold">Привіт, Олено 👋</div>
+src/components/ScreenshotsSection.tsx:272: <span className="text-[10px] font-semibold">Угода #{1240 + i + variant}</span>
+src/components/ScreenshotsSection.tsx:277: {i === variant % 4 ? "Активна" : "Перегляд"}
+src/components/ScreenshotsSection.tsx:281: 2-кімн., Київ · {45 + i * 8} м²
+src/components/ServicesSection.tsx:7: title: "Користувачі та ресурси",
+src/components/ServicesSection.tsx:9: ["Додатковий користувач", "490–790 грн/міс"],
+src/components/ServicesSection.tsx:10: ["Додаткові 10 ГБ файлів", "390 грн/міс"],
+src/components/ServicesSection.tsx:11: ["Додаткова філія", "1 500 грн/міс"],
+src/components/ServicesSection.tsx:12: ["Збільшення ліміту об'єктів", "індивідуально"],
+src/components/ServicesSection.tsx:17: title: "Імпорт та перенесення",
+src/components/ServicesSection.tsx:19: ["Імпорт великої бази", "від 5 000 грн"],
+src/components/ServicesSection.tsx:20: ["Перенесення клієнтів з Excel", "від 3 000 грн"],
+src/components/ServicesSection.tsx:21: ["Перенесення об'єктів з Excel", "від 5 000 грн"],
+src/components/ServicesSection.tsx:22: ["Очищення бази", "від 7 000 грн"],
+src/components/ServicesSection.tsx:27: title: "Інтеграції",
+src/components/ServicesSection.tsx:29: ["Інтеграція з сайтом", "від 15 000 грн"],
+src/components/ServicesSection.tsx:30: ["Інтеграція з телефонією", "від 12 000 грн"],
+src/components/ServicesSection.tsx:31: ["Інтеграція з Telegram", "від 8 000 грн"],
+src/components/ServicesSection.tsx:32: ["API для зовнішніх сервісів", "від 25 000 грн"],
+src/components/ServicesSection.tsx:37: title: "Сайт та просування",
+src/components/ServicesSection.tsx:39: ["SEO-просування лендінгу", "від 8 000 грн/міс"],
+src/components/ServicesSection.tsx:40: ["Обслуговування лендінгу", "від 3 000 грн/міс"],
+src/components/ServicesSection.tsx:41: ["SEO-тексти", "від 1 500 грн/стор."],
+src/components/ServicesSection.tsx:42: ["Ведення блогу", "від 6 000 грн/міс"],
+src/components/ServicesSection.tsx:47: title: "Кастомні функції",
+src/components/ServicesSection.tsx:49: ["Кастомний модуль", "від 20 000 грн"],
+src/components/ServicesSection.tsx:50: ["White Label", "від 30 000 грн"],
+src/components/ServicesSection.tsx:51: ["Персональні звіти", "індивідуально"],
+src/components/ServicesSection.tsx:52: ["Індивідуальний дизайн CRM", "від 50 000 грн"],
+src/components/ServicesSection.tsx:57: title: "Навчання та супровід",
+src/components/ServicesSection.tsx:59: ["Персональне навчання", "3 000 грн/год"],
+src/components/ServicesSection.tsx:60: ["Групова навчальна сесія", "від 7 000 грн/міс"],
+src/components/ServicesSection.tsx:61: ["Пріоритетна підтримка 24/7", "від 9 900 грн/міс"],
+src/components/ServicesSection.tsx:62: ["Технічний супровід CRM", "від 5 000 грн/міс"],
+src/components/ServicesSection.tsx:76: Розширення
+src/components/ServicesSection.tsx:79: Додаткові <span className="text-gradient-accent">можливості</span>
+src/components/ServicesSection.tsx:82: Розширюйте CRM під конкретне агентство, мережу або бізнес-модель.
+src/components/StatsStrip.tsx:4: { icon: Building2, value: "Об'єкти", label: "база" },
+src/components/StatsStrip.tsx:5: { icon: Users, value: "Клієнти", label: "історія" },
+src/components/StatsStrip.tsx:6: { icon: ShieldCheck, value: "Дані", label: "ролі" },
+src/routes/-landing-shared.tsx:35: <div className="carousel-bar" aria-label={`${label}: слайд ${active + 1} з ${total}`}>
+src/routes/-landing-shared.tsx:42: <button type="button" onClick={onPrev} aria-label="Попередній слайд">
+src/routes/-landing-shared.tsx:45: <button type="button" onClick={onNext} aria-label="Наступний слайд">
+src/routes/__root.tsx:75: { title: "Хатосфера CRM для нерухомості | hatosfera.business" },
+src/routes/__root.tsx:79: "Хатосфера CRM допомагає агентствам нерухомості вести об'єкти, клієнтів, угоди, задачі, аналітику та AI-метчинг в одній системі.",
+src/routes/__root.tsx:81: { name: "author", content: "Хатосфера CRM" },
+src/routes/__root.tsx:83: { property: "og:title", content: "Хатосфера CRM для агентств нерухомості" },
+src/routes/__root.tsx:87: "CRM для українського ринку нерухомості: об'єкти, клієнти, угоди, задачі, аналітика та AI-метчинг.",
+src/routes/index.tsx:20: Перейти до контенту
