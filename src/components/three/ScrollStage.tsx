@@ -1,50 +1,29 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 
 import { ArchitecturalScene } from "./ArchitecturalScene";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function ScrollStage() {
   const progressRef = useRef(0);
   const reducedMotion = useReducedMotionPreference();
   const compact = useCompactViewport();
 
-  useGSAP(
-    () => {
-      if (reducedMotion) return undefined;
+  useEffect(() => {
+    if (reducedMotion) return undefined;
 
-      const progress = { value: 0 };
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: document.documentElement,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.9,
-          onUpdate: () => {
-            progressRef.current = progress.value;
-          },
-        },
-      });
+    const update = () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      progressRef.current = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+    };
 
-      timeline
-        .addLabel("hero", 0)
-        .to(progress, { value: 1 / 3, duration: 1, ease: "none" })
-        .addLabel("product")
-        .to(progress, { value: 2 / 3, duration: 1, ease: "none" })
-        .addLabel("pricing")
-        .to(progress, { value: 1, duration: 1, ease: "none" })
-        .addLabel("contact");
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
 
-      return () => {
-        timeline.scrollTrigger?.kill();
-        timeline.kill();
-      };
-    },
-    { dependencies: [reducedMotion] },
-  );
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [reducedMotion]);
 
   if (reducedMotion) {
     return null;
