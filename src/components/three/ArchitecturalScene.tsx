@@ -1,6 +1,6 @@
 import { Float, useGLTF, useTexture } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Suspense, useEffect, useMemo, useRef } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import type { MutableRefObject } from "react";
 import * as THREE from "three";
 
@@ -175,8 +175,23 @@ export function ArchitecturalScene({
   compact = false,
 }: ArchitecturalSceneProps) {
   const { theme } = useTheme();
+  const [hasWebgl, setHasWebgl] = useState<boolean | null>(null);
 
-  if (reducedMotion) {
+  useEffect(() => {
+    const canvas = document.createElement("canvas");
+    let context: WebGLRenderingContext | WebGL2RenderingContext | null = null;
+
+    try {
+      context = canvas.getContext("webgl2") ?? canvas.getContext("webgl");
+    } catch {
+      context = null;
+    }
+
+    context?.getExtension("WEBGL_lose_context")?.loseContext();
+    setHasWebgl(Boolean(context));
+  }, []);
+
+  if (reducedMotion || hasWebgl !== true) {
     return null;
   }
 
