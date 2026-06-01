@@ -246,6 +246,10 @@ function Architecture({
     railRef.current = THREE.MathUtils.damp(railRef.current, progressRef.current, 3.8, delta);
     const cameraState = interpolateCamera(railRef.current);
     const camera = state.camera;
+    const idle = state.clock.elapsedTime;
+    const idleX = Math.sin(idle * 0.7) * (compact ? 0.07 : 0.12);
+    const idleY = Math.sin(idle * 0.52) * (compact ? 0.05 : 0.08);
+    const idleRotation = Math.sin(idle * 0.42) * (compact ? 0.045 : 0.075);
 
     camera.position.set(
       damp(camera.position.x, cameraState.position[0], delta),
@@ -264,13 +268,13 @@ function Architecture({
 
     if (group.current) {
       group.current.position.set(
-        damp(group.current.position.x, cameraState.groupPosition[0], delta),
-        damp(group.current.position.y, cameraState.groupPosition[1], delta),
+        damp(group.current.position.x, cameraState.groupPosition[0] + idleX, delta),
+        damp(group.current.position.y, cameraState.groupPosition[1] + idleY, delta),
         damp(group.current.position.z, cameraState.groupPosition[2], delta),
       );
       group.current.rotation.set(
         damp(group.current.rotation.x, cameraState.groupRotation[0], delta),
-        damp(group.current.rotation.y, cameraState.groupRotation[1], delta),
+        damp(group.current.rotation.y, cameraState.groupRotation[1] + idleRotation, delta),
         damp(group.current.rotation.z, cameraState.groupRotation[2], delta),
       );
       group.current.scale.setScalar(damp(group.current.scale.x, cameraState.groupScale, delta));
