@@ -179,10 +179,17 @@ export function ArchitecturalScene({
 
   useEffect(() => {
     const canvas = document.createElement("canvas");
+    const contextOptions: WebGLContextAttributes = {
+      alpha: true,
+      antialias: true,
+      failIfMajorPerformanceCaveat: false,
+      powerPreference: "default",
+    };
     let context: WebGLRenderingContext | WebGL2RenderingContext | null = null;
 
     try {
-      context = canvas.getContext("webgl2") ?? canvas.getContext("webgl");
+      context =
+        canvas.getContext("webgl2", contextOptions) ?? canvas.getContext("webgl", contextOptions);
     } catch {
       context = null;
     }
@@ -204,7 +211,12 @@ export function ArchitecturalScene({
         near: 0.1,
         far: 80,
       }}
-      gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+      gl={{
+        antialias: true,
+        alpha: true,
+        failIfMajorPerformanceCaveat: false,
+        powerPreference: "default",
+      }}
     >
       <Suspense fallback={null}>
         <ambientLight intensity={theme === "dark" ? 1.05 : 1.38} />
