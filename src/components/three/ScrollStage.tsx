@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 import { ArchitecturalScene } from "./ArchitecturalScene";
 
+const chapterIds = ["hero", "product", "pricing", "contact"];
+
 export function ScrollStage() {
   const progressRef = useRef(0);
   const reducedMotion = useReducedMotionPreference();
@@ -10,18 +12,56 @@ export function ScrollStage() {
   useEffect(() => {
     if (reducedMotion) return undefined;
 
+    let frame = 0;
+
     const update = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      progressRef.current = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      frame = 0;
+      const centers = chapterIds
+        .map((id) => document.getElementById(id))
+        .filter((element): element is HTMLElement => Boolean(element))
+        .map((element) => element.offsetTop + element.offsetHeight * 0.5);
+
+      if (centers.length < 2) {
+        progressRef.current = 0;
+        return;
+      }
+
+      const viewportCenter = window.scrollY + window.innerHeight * 0.5;
+      const lastIndex = centers.length - 1;
+
+      if (viewportCenter <= centers[0]) {
+        progressRef.current = 0;
+        return;
+      }
+
+      if (viewportCenter >= centers[lastIndex]) {
+        progressRef.current = 1;
+        return;
+      }
+
+      const index = centers.findIndex((center, currentIndex) => {
+        const next = centers[currentIndex + 1];
+        return typeof next === "number" && viewportCenter >= center && viewportCenter <= next;
+      });
+      const from = centers[index];
+      const to = centers[index + 1];
+
+      progressRef.current = (index + (viewportCenter - from) / (to - from)) / lastIndex;
+    };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
     };
 
     update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
 
     return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
     };
   }, [reducedMotion]);
 

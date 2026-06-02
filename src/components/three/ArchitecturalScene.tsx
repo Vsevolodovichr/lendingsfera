@@ -4,8 +4,8 @@ import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import type { MutableRefObject } from "react";
 import * as THREE from "three";
 
-import heroBuildingDark from "@/assets/hero-building-dark.png";
-import heroBuildingLight from "@/assets/hero-building-light.png";
+import heroBuildingDark from "@/assets/hero-building-dark-landing.png";
+import heroBuildingLight from "@/assets/hero-building-light-landing.png";
 import { useTheme } from "@/components/layout/ThemeProvider";
 
 type ChapterKey = "hero" | "product" | "pricing" | "contact";

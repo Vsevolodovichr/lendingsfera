@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 import logoDark from "@/assets/logo-dark.png";
 import logoLight from "@/assets/logo-light.png";
-import heroBuildingDark from "@/assets/hero-building-dark.png";
-import heroBuildingLight from "@/assets/hero-building-light.png";
+import heroBuildingDark from "@/assets/hero-building-dark-landing.png";
+import heroBuildingLight from "@/assets/hero-building-light-landing.png";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { ScrollStage } from "@/components/three/ScrollStage";
 import { Button } from "@/components/ui/button";
@@ -78,7 +78,7 @@ function ReferenceHeader({
           <img src={logo} alt="Хатосфера" className="size-8 object-contain" />
           <span className="text-sm font-semibold text-foreground">Хатосфера CRM</span>
         </a>
-        <nav className="hidden items-center gap-10 text-[11px] font-medium text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-10 text-[11px] font-medium text-muted-foreground lg:flex">
           {navItems.map((item) => (
             <a
               key={item}
@@ -91,7 +91,7 @@ function ReferenceHeader({
           ))}
         </nav>
         <div className="flex items-center justify-end gap-4">
-          <Button asChild size="sm" className="hidden rounded-sm md:inline-flex">
+          <Button asChild size="sm" className="hidden rounded-sm lg:inline-flex">
             <a href="#contact">Замовити демо</a>
           </Button>
           <button
@@ -149,18 +149,21 @@ function HeroChapter({ heroImage }: { heroImage: string }) {
       <div className="chapter-copy">
         <motion.p
           className="chapter-kicker"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={false}
         >
           CRM для нерухомості
         </motion.p>
         <motion.h1
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.08, duration: 0.7 }}
-          className="max-w-[560px] text-balance text-[clamp(3.1rem,5.35vw,5.3rem)] font-medium leading-[0.96] tracking-[-0.045em] text-foreground"
+          initial={false}
+          className="reference-hero-title"
         >
-          CRM для нерухомості, <span className="text-accent">створена архітекторами продажів</span>
+          CRM для
+          <br />
+          нерухомості,
+          <br />
+          <span className="text-accent">створена архітекторами</span>
+          <br />
+          <span className="text-accent">продажів</span>
         </motion.h1>
         <p className="mt-6 max-w-[420px] text-sm leading-6 text-muted-foreground">
           Єдина система для керування об'єктами, клієнтами та угодами. Більше угод. Менше рутини.
@@ -201,9 +204,7 @@ function HeroChapter({ heroImage }: { heroImage: string }) {
 function HeroDataPanel() {
   return (
     <motion.aside
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.2, duration: 0.7 }}
+      initial={false}
       className="reference-panel hero-panel"
     >
       <div className="mb-6 flex items-center justify-between">
@@ -332,7 +333,7 @@ function ContactChapter({ logo }: { logo: string }) {
       </div>
       <div className="contact-board">
         <form className="reference-panel contact-form">
-          {["Ім'я", "Телефон", "Компанія", "Ваш запит"].map((label) => (
+          {["Ім'я", "Телефон", "Компанія", "Email", "Ваш запит"].map((label) => (
             <label key={label} className="grid gap-2">
               <span className="text-[11px] text-muted-foreground">{label}</span>
               <input
