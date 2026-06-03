@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { ArchitecturalScene } from "./ArchitecturalScene";
 
-const chapterIds = ["hero", "product", "pricing", "contact"];
-
 export function ScrollStage() {
   const progressRef = useRef(0);
   const reducedMotion = useReducedMotionPreference();
@@ -16,37 +14,17 @@ export function ScrollStage() {
 
     const update = () => {
       frame = 0;
-      const centers = chapterIds
-        .map((id) => document.getElementById(id))
-        .filter((element): element is HTMLElement => Boolean(element))
-        .map((element) => element.offsetTop + element.offsetHeight * 0.5);
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight,
+      ) - window.innerHeight;
 
-      if (centers.length < 2) {
+      if (maxScroll <= 0) {
         progressRef.current = 0;
         return;
       }
 
-      const viewportCenter = window.scrollY + window.innerHeight * 0.5;
-      const lastIndex = centers.length - 1;
-
-      if (viewportCenter <= centers[0]) {
-        progressRef.current = 0;
-        return;
-      }
-
-      if (viewportCenter >= centers[lastIndex]) {
-        progressRef.current = 1;
-        return;
-      }
-
-      const index = centers.findIndex((center, currentIndex) => {
-        const next = centers[currentIndex + 1];
-        return typeof next === "number" && viewportCenter >= center && viewportCenter <= next;
-      });
-      const from = centers[index];
-      const to = centers[index + 1];
-
-      progressRef.current = (index + (viewportCenter - from) / (to - from)) / lastIndex;
+      progressRef.current = Math.min(1, Math.max(0, window.scrollY / maxScroll));
     };
 
     const scheduleUpdate = () => {

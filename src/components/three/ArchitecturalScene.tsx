@@ -55,7 +55,7 @@ const CAMERA_STATES: Record<ChapterKey, CameraState> = {
     groupPosition: [0.9, -0.06, -1.16],
     groupRotation: [0.018, -0.16, 0.004],
     groupScale: 0.96,
-    overlayOpacity: 0.5,
+    overlayOpacity: 0.78,
   },
   product: {
     position: [1.36, 0.22, 5.12],
@@ -65,7 +65,7 @@ const CAMERA_STATES: Record<ChapterKey, CameraState> = {
     groupPosition: [0.58, -0.1, -1.36],
     groupRotation: [-0.03, 0.32, -0.018],
     groupScale: 1.18,
-    overlayOpacity: 0.76,
+    overlayOpacity: 0.9,
   },
   pricing: {
     position: [0.44, 0.68, 5.9],
@@ -75,7 +75,7 @@ const CAMERA_STATES: Record<ChapterKey, CameraState> = {
     groupPosition: [0.52, -0.18, -1.5],
     groupRotation: [0.02, -0.18, 0.01],
     groupScale: 0.98,
-    overlayOpacity: 0.68,
+    overlayOpacity: 0.84,
   },
   contact: {
     position: [-0.62, 1.18, 7.22],
@@ -85,15 +85,15 @@ const CAMERA_STATES: Record<ChapterKey, CameraState> = {
     groupPosition: [0.82, -0.38, -1.82],
     groupRotation: [-0.1, 0.18, 0.018],
     groupScale: 0.82,
-    overlayOpacity: 0.52,
+    overlayOpacity: 0.72,
   },
 };
 
 const MODEL_STATES: Record<ChapterKey, SliceTransform> = {
-  hero: transform([1.08, -0.28, 0.2], [0.02, -0.18, 0], [0.84, 0.84, 0.84], 0.58),
-  product: transform([0.72, -0.3, 0.58], [-0.03, 0.2, -0.015], [1, 0.98, 1], 0.84),
-  pricing: transform([0.58, -0.34, 0.12], [0.03, -0.12, 0.01], [0.86, 0.86, 0.86], 0.68),
-  contact: transform([0.72, -0.52, -0.68], [-0.07, 0.12, 0.02], [0.74, 0.74, 0.74], 0.5),
+  hero: transform([1.08, -0.28, 0.2], [0.02, -0.18, 0], [0.84, 0.84, 0.84], 1),
+  product: transform([0.72, -0.3, 0.58], [-0.03, 0.2, -0.015], [1, 0.98, 1], 1),
+  pricing: transform([0.58, -0.34, 0.12], [0.03, -0.12, 0.01], [0.86, 0.86, 0.86], 0.92),
+  contact: transform([0.72, -0.52, -0.68], [-0.07, 0.12, 0.02], [0.74, 0.74, 0.74], 0.82),
 };
 
 const SLICES: BuildingSlice[] = [
@@ -204,7 +204,7 @@ export function ArchitecturalScene({
 
   return (
     <Canvas
-      dpr={[1, compact ? 1.15 : 1.7]}
+      dpr={1}
       camera={{
         position: [0, 0.5, compact ? 7.8 : 7.2],
         fov: compact ? 35 : 31,
@@ -488,12 +488,12 @@ function BuildingSliceMesh({
 
     if (imageMaterial.current) {
       imageMaterial.current.opacity =
-        target.opacity * opacityRef.current * (compact ? 0.42 : theme === "dark" ? 0.58 : 0.38);
+        target.opacity * opacityRef.current * (compact ? 0.22 : theme === "dark" ? 0.32 : 0.24);
     }
 
     if (depthMaterial.current) {
       depthMaterial.current.opacity =
-        target.opacity * opacityRef.current * (compact ? 0.08 : theme === "dark" ? 0.14 : 0.06);
+        target.opacity * opacityRef.current * (compact ? 0.05 : theme === "dark" ? 0.1 : 0.04);
     }
   });
 
